@@ -1,7 +1,7 @@
 path_to_file = r"Dane_2305\slowa.txt"
 
 
-path_to_file = r"Dane_2305\przyklad.txt"
+# path_to_file = r"Dane_2305\przyklad.txt"
 
 
 def sanitize_input():
@@ -17,13 +17,11 @@ def ex_4_1(sanitized_input):
 
 def ex_4_2(sanitized_input):
     letters = ("a", "c", "e", "k", "j", "w")
+    xyz = []
     results = []
-    sanitized_input = sanitized_input[38:39]
     for word in sanitized_input:
-        counter = {letter: list(word).count(letter) for letter in letters}
-        minimum_letter = min(counter.items(), key=lambda x: x[1])
-        result = minimum_letter[1]//2 if minimum_letter[0]=='a' else minimum_letter[1]
-        results.append(result)
+        # counter = {letter: list(word).count(letter) if letter!="a" else list(word).count(letter)//2 for letter in letters }
+        results.append(min({letter: list(word).count(letter) if letter!="a" else list(word).count(letter)//2 for letter in letters }.items(), key=lambda x: x[1])[1])
     a =1
 
 if __name__ == '__main__':
