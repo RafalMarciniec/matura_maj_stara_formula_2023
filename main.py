@@ -17,14 +17,20 @@ def ex_4_1(sanitized_input):
 
 def ex_4_2(sanitized_input):
     letters = ("a", "c", "e", "k", "j", "w")
-    xyz = []
     results = []
     for word in sanitized_input:
-        # counter = {letter: list(word).count(letter) if letter!="a" else list(word).count(letter)//2 for letter in letters }
-        results.append(min({letter: list(word).count(letter) if letter!="a" else list(word).count(letter)//2 for letter in letters }.items(), key=lambda x: x[1])[1])
-    a =1
+        results.append(
+            min({letter: list(word).count(letter) if letter != "a" else list(word).count(letter) // 2 for letter in
+                 letters}.items(), key=lambda x: x[1])[1])
+    print(results)
+
+
+def ex_4_3(sanitized_input):
+    pass
+
 
 if __name__ == '__main__':
     abc = sanitize_input()
-    # ex_4_1(abc)
+    ex_4_1(abc)
     ex_4_2(abc)
+    ex_4_3(abc)
