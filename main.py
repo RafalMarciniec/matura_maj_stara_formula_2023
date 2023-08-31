@@ -4,6 +4,9 @@ path_to_file = r"Dane_2305\slowa.txt"
 # path_to_file = r"Dane_2305\przyklad.txt"
 
 
+WAKACJE_WORD = "wakacje"
+
+
 def sanitize_input():
     with open(path_to_file, "r") as f:
         return [item.replace("\n", "") for item in f.readlines()]
@@ -16,7 +19,7 @@ def ex_4_1(sanitized_input):
 
 
 def ex_4_2(sanitized_input):
-    letters = ("a", "c", "e", "k", "j", "w")
+    letters = set(WAKACJE_WORD)
     results = []
     for word in sanitized_input:
         results.append(
@@ -26,19 +29,19 @@ def ex_4_2(sanitized_input):
 
 
 def ex_4_3(sanitized_input):
-    word_to_find = "wakacje"
     for word in sanitized_input:
         idx = 0
-        wak = ""
+        wakacje = ""
+        #can be done better? to reconsider
         for letter in word:
-            if letter == word_to_find[idx]:
-                wak += letter
+            if letter == WAKACJE_WORD[idx]:
+                wakacje += letter
                 idx = (idx + 1) % 7
-        print(len(word) - len(wak[:7 * (len(wak) // 7)]))
+        print(len(word) - len(wakacje[:7 * (len(wakacje) // 7)]))
 
 
 if __name__ == '__main__':
     abc = sanitize_input()
-    # ex_4_1(abc)
-    # ex_4_2(abc)
+    ex_4_1(abc)
+    ex_4_2(abc)
     ex_4_3(abc)
