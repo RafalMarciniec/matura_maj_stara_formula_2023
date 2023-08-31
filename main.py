@@ -26,11 +26,19 @@ def ex_4_2(sanitized_input):
 
 
 def ex_4_3(sanitized_input):
-    pass
+    word_to_find = "wakacje"
+    for word in sanitized_input:
+        idx = 0
+        wak = ""
+        for letter in word:
+            if letter == word_to_find[idx]:
+                wak += letter
+                idx = (idx + 1) % 7
+        print(len(word) - len(wak[:7 * (len(wak) // 7)]))
 
 
 if __name__ == '__main__':
     abc = sanitize_input()
-    ex_4_1(abc)
-    ex_4_2(abc)
+    # ex_4_1(abc)
+    # ex_4_2(abc)
     ex_4_3(abc)
